@@ -2,15 +2,24 @@
 // Created by beloin on 13/06/2022.
 //
 
-#include "Adapters/ViaSulSourceAdapter.h"
-#include "Adapters/CometaSourceAdapter.h"
-#include "Adapters/PaodeAcucarSourceAdapter.h"
+#include <iostream>
+#include "string"
+#include "product/ProductSearcher.h"
+#include "product/Product.h"
 
 int main () {
-    SearchAdapter adapter1 = new ViaSulSourceAdapter();
-    SearchAdapter adapter2 = new CometaSourceAdapter();
-    SearchAdapter adapter3 = new PaodeAcucarSourceAdapter();
-    SearchAdapter adapter4 = new ViaSulSourceAdapter();
+    auto searcher = new ProductSearcher();
+    std::cout << "Please Write yout Keyword to search" << std::endl;
+
+    std::string key;
+    getline(std::cin, key);
+
+    auto searchResults = searcher->search(key);
+
+    for (Product *p: searchResults) {
+        std::cout << p->toString();
+        std::cout << std::endl;
+    }
 
     return 0;
 }

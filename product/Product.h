@@ -18,11 +18,12 @@ private:
 public:
     Product(const std::string &name, float price, const std::string &localization, float quality);
 
-public:
     const std::string &getName() const;
     float getPrice() const;
     const std::string &getLocalization() const;
     float getQuality() const;
+
+    std::string toString();
 };
 
 

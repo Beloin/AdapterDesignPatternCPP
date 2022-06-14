@@ -25,3 +25,12 @@ Product::Product(const std::string &name, float price, const std::string &locali
                                                                                                          localization(
                                                                                                                  localization),
                                                                                                          quality(quality) {}
+
+std::string Product::toString() {
+    std::string str;
+    str += this->getName() + ":\n";
+    str += "\tPrice: " + std::to_string(this->getPrice()) + "\n";
+    str += "\tLocalization: " + this->getLocalization() + "\n";
+    str += "\tQuality: " + std::to_string(this->getQuality()) + "\n";
+    return str;
+}

@@ -11,7 +11,6 @@
 
 class SearchAdapter {
 public:
-    SearchAdapter() = default;
     virtual std::vector<Product*> search(std::string keyword) = 0;
 };
 
