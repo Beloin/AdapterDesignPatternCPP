@@ -3,6 +3,7 @@
 //
 
 #include "PaodeAcucarSource.h"
+#include "search.h"
 
 std::vector<Product *> PaodeAcucarSource::searchDb(std::string keyword, int getMany) {
     auto prod1 = new Product("Milk", 8, "Bairro 13 de Maio", 2.7);
@@ -16,5 +17,5 @@ std::vector<Product *> PaodeAcucarSource::searchDb(std::string keyword, int getM
     vector.push_back(prod3);
     vector.push_back(prod4);
 
-    return vector;
+    return Search::search(vector, std::move(keyword));
 }

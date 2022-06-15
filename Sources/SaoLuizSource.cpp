@@ -3,6 +3,7 @@
 //
 
 #include "SaoLuizSource.h"
+#include "search.h"
 
 std::vector<Product *> SaoLuizSource::search(std::string keyword, int limit, int page) {
     auto prod1 = new Product("Milk", 5, "Bairro lackPill", 1.7);
@@ -16,6 +17,6 @@ std::vector<Product *> SaoLuizSource::search(std::string keyword, int limit, int
     vector.push_back(prod3);
     vector.push_back(prod4);
 
-    return vector;
+    return Search::search(vector, std::move(keyword));
 }
 

@@ -3,6 +3,7 @@
 //
 
 #include "ViaSulSource.h"
+#include "search.h"
 
 std::vector<Product *> ViaSulSource::queryProducts(std::string keyword) {
     auto prod1 = new Product("Milk", 16, "Rua Jonicast Ferrari", 2.7);
@@ -16,5 +17,5 @@ std::vector<Product *> ViaSulSource::queryProducts(std::string keyword) {
     vector.push_back(prod3);
     vector.push_back(prod4);
 
-    return vector;
+    return Search::search(vector, std::move(keyword));
 }

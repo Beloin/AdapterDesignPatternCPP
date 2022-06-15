@@ -4,6 +4,9 @@
 
 #include "CometaSource.h"
 
+#include <utility>
+#include "search.h"
+
 std::vector<Product *> CometaSource::searchDatabase(std::string keyword, std::string apiKey) {
     auto prod1 = new Product("Milk", 12, "Rua Jô Soares", 3.7);
     auto prod2 = new Product("Chocolate", 18, "Rua Jô Soares", 2.7);
@@ -15,5 +18,6 @@ std::vector<Product *> CometaSource::searchDatabase(std::string keyword, std::st
     vector.push_back(prod2);
     vector.push_back(prod3);
     vector.push_back(prod4);
-    return vector;
+
+    return Search::search(vector, std::move(keyword));
 }
